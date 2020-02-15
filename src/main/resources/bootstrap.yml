@@ -1,0 +1,14 @@
+server:
+  port: ${SERVER_PORT:1080}
+spring:
+  application:
+    name: bus
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+
+    config:
