@@ -1,0 +1,28 @@
+server:
+  port: 1080
+spring:
+  application:
+    name: config_server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+    config:
+      server:
+        #git配置项
+        git:
+          uri: https://github.com/CaCoCa/SpringCloud_Config.git
+          #username:   # 访问git仓库的用户名   如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
+          #password:
+          search-paths: /**   #远程仓库的目录
+          default-label: master   # 配置仓库的分支
+    #消息总线配置
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+      refresh:
+        enabled: true  #开启总线消息更新功能

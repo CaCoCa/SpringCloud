@@ -1,0 +1,35 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 2080
+
+spring:
+  application:
+    name: admin-server  # 对应配置中心配置文件中的{application}部分　名称需要与子服务名称以及读取的配置文件库中文件名称一致　　　
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        prefix: application
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+      refresh:
+        enabled: true  #开启总线消息更新功能
+  profiles:
+    active: test
+
+
+# 屏蔽安全验证
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'  # 可以选择【"health","mappings","bus-refresh"】三种选项暴露那些端点
+logging:
+  level:
+    root: info
