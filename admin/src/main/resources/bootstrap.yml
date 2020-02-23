@@ -24,12 +24,3 @@ spring:
     active: test
 
 
-# 屏蔽安全验证
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'  # 可以选择【"health","mappings","bus-refresh"】三种选项暴露那些端点
-logging:
-  level:
-    root: info

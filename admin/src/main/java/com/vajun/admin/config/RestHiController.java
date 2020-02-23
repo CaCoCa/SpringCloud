@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class RestHiController {
 
-    @Value("${test.version}")
+    @Value("${test.version:1}")
     private String version;
 
     @GetMapping(value = "/hello")
