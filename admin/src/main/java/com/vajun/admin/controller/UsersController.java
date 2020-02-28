@@ -4,6 +4,7 @@ package com.vajun.admin.controller;
 import com.vajun.admin.entity.Users;
 import com.vajun.admin.service.IUsersService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,12 @@ public class UsersController {
         Users users = usersService.getById(id);
         log.info("userId:{},detail:{}",id, users);
         return users;
+    }
+    @Scheduled(cron = "0/5 * * * * *")
+    public void scheduledGetUser(){
+        String id = "101";
+        Users users = usersService.getById(id);
+        log.info("userId:{},detail:{}",id, users);
     }
 
 }
